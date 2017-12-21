@@ -1,7 +1,6 @@
 
 public class Dealer extends Person {
-	@Override
-	public boolean hit_me(Table tbl) {
+	public boolean hit_me(Table table) {
 		int total_value = getTotalValue();
 		if (total_value < 17)
 			return true;
@@ -11,10 +10,10 @@ public class Dealer extends Person {
 			if (total_value >= 21)
 				return false;
 			else {
-				Player[] players = tbl.get_player();
+				Player[] players = table.get_player();
 				int lose_count = 0;
 				int v_count = 0;
-				int[] betArray = tbl.get_palyers_bet();
+				int[] betArray = table.get_palyers_bet();
 				for (int i = 0; i < players.length; i++) {
 					if (players[i] == null) {
 						continue;
@@ -34,6 +33,12 @@ public class Dealer extends Person {
 			}
 		}
 
+	}
+
+	@Override
+	public boolean hit_me(Table2 table) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
